@@ -67,12 +67,15 @@
    
     while (self.position < length){
         @try {
-            double resultingLat = [self decodeSingleCoordinate:byteArray length:length position:self.position precision:precision];
-            lat += resultingLat;
             
             double resultingLon = [self decodeSingleCoordinate:byteArray length:length position:self.position precision:precision];
             lon += resultingLon;
-        } @catch (NSException *exception) {
+
+            
+            double resultingLat = [self decodeSingleCoordinate:byteArray length:length position:self.position precision:precision];
+            lat += resultingLat;
+            
+                    } @catch (NSException *exception) {
 
         } @finally {
             
